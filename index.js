@@ -23,6 +23,10 @@ app.get('/api/hello', function (req, res) {
   res.json({ greeting: 'hello API' });
 });
 
+app.get('/api', (req, res) =>
+  res.json({ unix: Date.now(), utc: new Date().toUTCString() })
+);
+
 app.get('/api/:time', (req, res) => {
   let date = new Date(req.params.time);
   if (date == 'Invalid Date') {
